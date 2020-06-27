@@ -8,8 +8,13 @@ License:        LGPLv3.0
 URL:            https://github.com/mirukana/mirage
 Source0:        https://github.com/mirukana/mirage/archive/v%{version}/%{oname}-%{version}.tar.gz
 
+BuildRequires: qmake5
 BuildRequires: qt5-devel
 BuildRequires: qt5-qtbase-devel
+BuildRequires: pkgconfig(Qt5Quick)
+BuildRequires: pkgconfig(Qt5QuickControls2)
+BuildRequires: pkgconfig(Qt5Widgets)
+BuildRequires: pkgconfig(Qt5QuickWidgets)
 
 
 %description
