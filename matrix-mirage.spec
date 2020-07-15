@@ -70,3 +70,6 @@ mkdir -p %{buildroot}%{_bindir}
 %make_install INSTALL_ROOT=%{buildroot}
 
 %files
+%{_bindir}/mirage
+%{_datadir}/applications/mirage.desktop
+%{_iconsdir}/hicolor/*x*/apps/mirage.png
