@@ -8,6 +8,7 @@ License:        LGPLv3.0
 URL:            https://github.com/mirukana/mirage
 Source0:        https://github.com/mirukana/mirage/archive/v%{version}/%{oname}-%{version}.tar.gz
 
+BuildRequires: cmake
 BuildRequires: qmake5
 BuildRequires: qt5-devel
 BuildRequires: qt5-qtbase-devel
@@ -15,22 +16,42 @@ BuildRequires: pkgconfig(Qt5Quick)
 BuildRequires: pkgconfig(Qt5QuickControls2)
 BuildRequires: pkgconfig(Qt5Widgets)
 BuildRequires: pkgconfig(Qt5QuickWidgets)
+BuildRequires: pkgconfig(Qt5Qml)
+BuildRequires: pkgconfig(Qt5Svg)
+BuildRequires: qt5-qtgraphicaleffects
+BuildRequires: qt5-qtimageformats
 
 BuildRequires: pkgconfig(python)
+BuildRequires: python3dist(pip)
 BuildRequires: pyotherside
+# In unsupported repo for now, so disable it
+#BuildRequires: pkgconfig(libmediainfo)
+
 BuildRequires: cmake(Olm)
+BuildRequires: python3dist(python-olm)
 BuildRequires: python-pillow-devel
 BuildRequires: python3dist(pillow)
-python3dist(aiofiles)
-python3dist(appdirs)
+BuildRequires: pkgconfig(libturbojpeg)
+BuildRequires: pkgconfig(zlib)
+BuildRequires: pkgconfig(libtiff-4)
+BuildRequires: pkgconfig(libwebp)
+BuildRequires: pkgconfig(libopenjp2)
+BuildRequires: python3dist(aiofiles)
+BuildRequires: python3dist(appdirs)
 #python3dist(blist)
-python3dist(cairosvg)
+BuildRequires: python3dist(cairosvg)
 #python3dist(filetype)
 #python-html-sanitizer
-python3.8dist(lxml)
-#python-matrix-nio
-python3dist(mistune)
+BuildRequires: python3.8dist(lxml)
+BuildRequires: python3dist(matrix-nio)
+BuildRequires: python3dist(mistune)
+#python3dist(pymediainfo)
+#python3dist(async-generator)
+#python3-dataclasses
+#python-pyfastcopy
 
+Requires: python3dist(matrix-nio)
+Requires: python3dist(python-olm)
 
 
 %description
