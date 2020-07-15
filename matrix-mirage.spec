@@ -52,6 +52,7 @@ BuildRequires: python3dist(mistune)
 
 Requires: python3dist(matrix-nio)
 Requires: python3dist(python-olm)
+Requires: python3dist(filetype)
 
 
 %description
