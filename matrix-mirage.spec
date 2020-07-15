@@ -69,6 +69,4 @@ Written in Qt/QML + Python with nio.
 mkdir -p %{buildroot}%{_bindir}
 %make_install INSTALL_ROOT=%{buildroot}
 
-%find_lang %{name}
-
-%files -f %{name}.lang
+%files
