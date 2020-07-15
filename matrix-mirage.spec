@@ -62,7 +62,8 @@ Written in Qt/QML + Python with nio.
 %autosetup -p1 -n %{oname}-%{version}
  
 %build
-%qmake_qt5 PREFIX=/usr
+#%qmake_qt5 PREFIX=/usr
+%qmake_qt5
 %make_build
 
 %install
