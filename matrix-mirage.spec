@@ -62,12 +62,12 @@ Written in Qt/QML + Python with nio.
 %autosetup -p1 -n %{oname}-%{version}
  
 %build
-#%qmake_qt5 PREFIX=/usr
-%qmake_qt5
+%qmake_qt5 PREFIX=/usr
 %make_build
 
 %install
-%make_install
+mkdir -p %{buildroot}%{_bindir}
+%make_install INSTALL_ROOT=%{buildroot}
 
 %find_lang %{name}
 
