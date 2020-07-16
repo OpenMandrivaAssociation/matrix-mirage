@@ -24,8 +24,6 @@ BuildRequires: qt5-qtimageformats
 BuildRequires: pkgconfig(python)
 BuildRequires: python3dist(pip)
 BuildRequires: pyotherside
-# In unsupported repo for now, so disable it
-#BuildRequires: pkgconfig(libmediainfo)
 
 BuildRequires: cmake(Olm)
 BuildRequires: python3dist(python-olm)
@@ -41,14 +39,19 @@ BuildRequires: python3dist(appdirs)
 BuildRequires: python3dist(blist)
 BuildRequires: python3dist(cairosvg)
 BuildRequires: python3dist(filetype)
-#python-html-sanitizer
-BuildRequires: python3.8dist(lxml)
+BuildRequires: python3dist(html-sanitizer)
+BuildRequires: python3dist(lxml)
 BuildRequires: python3dist(matrix-nio)
 BuildRequires: python3dist(mistune)
-#python3dist(pymediainfo)
-#python3dist(async-generator)
-#python3-dataclasses
-#python-pyfastcopy
+BuildRequires: python3dist(async-generator)
+BuildRequires: python3dist(dataclasses)
+BuildRequires: python3dist(pyfastcopy)
+
+# Not available yet 
+#BuildRequires: python3dist(pymediainfo)
+# In unsupported repo for now, so disable it
+#BuildRequires: pkgconfig(libmediainfo)
+
 
 Requires: python3dist(matrix-nio)
 Requires: python3dist(python-olm)
