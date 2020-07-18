@@ -53,9 +53,26 @@ BuildRequires: python3dist(pyfastcopy)
 #BuildRequires: pkgconfig(libmediainfo)
 
 
+Requires: python3dist(pip)
+Requires: pyotherside
 Requires: python3dist(matrix-nio)
 Requires: python3dist(python-olm)
 Requires: python3dist(filetype)
+Requires: python3dist(pillow)
+Requires: python3dist(aiofiles)
+Requires: python-atomicwrites
+Requires: python3dist(appdirs)
+Requires: python3dist(blist)
+Requires: python3dist(cairosvg)
+Requires: python3dist(filetype)
+Requires: python3dist(html-sanitizer)
+Requires: python3dist(lxml)
+Requires: python3dist(matrix-nio)
+Requires: python3dist(mistune)
+Requires: python3dist(async-generator)
+Requires: python3dist(dataclasses)
+Requires: python3dist(pyfastcopy)
+#Requires: python3dist(pymediainfo)
 
 
 %description
