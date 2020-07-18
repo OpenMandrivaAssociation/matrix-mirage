@@ -46,12 +46,8 @@ BuildRequires: python3dist(mistune)
 BuildRequires: python3dist(async-generator)
 BuildRequires: python3dist(dataclasses)
 BuildRequires: python3dist(pyfastcopy)
-
-# Not available yet 
-#BuildRequires: python3dist(pymediainfo)
-# In unsupported repo for now, so disable it
-#BuildRequires: pkgconfig(libmediainfo)
-
+BuildRequires: python3dist(pymediainfo)
+BuildRequires: pkgconfig(libmediainfo)
 
 Requires: python3dist(pip)
 Requires: pyotherside
@@ -72,8 +68,7 @@ Requires: python3dist(mistune)
 Requires: python3dist(async-generator)
 Requires: python3dist(dataclasses)
 Requires: python3dist(pyfastcopy)
-#Requires: python3dist(pymediainfo)
-
+Requires: python3dist(pymediainfo)
 
 %description
 A fancy, customizable, keyboard-operable Matrix chat client for encrypted and decentralized communication.
