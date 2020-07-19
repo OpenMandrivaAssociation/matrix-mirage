@@ -5,6 +5,7 @@ Version:        0.6.0
 Release:        1
 Summary:        A fancy, customizable, keyboard-operable Matrix chat client written in Qt/QML + Python with nio.
 License:        LGPLv3.0
+Group:          Networking/Instant messaging
 URL:            https://github.com/mirukana/mirage
 # For now use "git clone --recursive" to download all sources and submodules. Source code not contains submodules.
 Source0:        https://github.com/mirukana/mirage/archive/v%{version}/%{oname}-%{version}.tar.gz
