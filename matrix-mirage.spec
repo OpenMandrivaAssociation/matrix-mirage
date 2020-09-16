@@ -1,7 +1,7 @@
 %define oname mirage
 
 Name:           matrix-mirage
-Version:        0.6.2
+Version:        0.6.4
 Release:        1
 Summary:        A fancy, customizable, keyboard-operable Matrix chat client written in Qt/QML + Python with nio.
 License:        LGPLv3.0
