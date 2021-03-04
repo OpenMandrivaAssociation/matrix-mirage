@@ -92,4 +92,5 @@ mkdir -p %{buildroot}%{_bindir}
 %files
 %{_bindir}/mirage
 %{_datadir}/applications/mirage.desktop
+%{_datadir}/examples/mirage/settings.py
 %{_iconsdir}/hicolor/*x*/apps/mirage.png
