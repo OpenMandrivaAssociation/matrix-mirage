@@ -1,0 +1,54 @@
+Description: rename on-disk project name to matrix-mirage
+ Upstream name "mirage" clashes with a GTK image viewer.
+Author: Jonas Smedegaard <dr@jones.dk>
+Bug: https://github.com/mirukana/mirage/issues/131
+Last-Update: 2020-09-23
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/mirage.pro
++++ b/mirage.pro
+@@ -27,7 +27,7 @@
+ RESOURCES += $$QRC_FILE
+ HEADERS   += $$glob_filenames(*.h) submodules/hsluv-c/src/hsluv.h
+ SOURCES   += $$glob_filenames(*.cpp) submodules/hsluv-c/src/hsluv.c
+-TARGET     = mirage
++TARGET     = matrix-mirage
+ 
+ unix:!macx {
+     LIBS += -lX11 -lXss
+--- a/src/backend/__init__.py
++++ b/src/backend/__init__.py
+@@ -12,7 +12,7 @@
+ - `nio_callbacks`
+ """
+ 
+-__app_name__     = "mirage"
++__app_name__     = "matrix-mirage"
+ __display_name__ = "Mirage"
+ __reverse_dns__  = "io.github.mirukana.mirage"
+ __version__      = "0.7.2"
+--- a/src/main.cpp
++++ b/src/main.cpp
+@@ -130,7 +130,7 @@
+     qInstallMessageHandler(loggingHandler);
+ 
+     // Define some basic info about the app before creating the QApplication
+-    QApplication::setOrganizationName("mirage");
++    QApplication::setOrganizationName("matrix-mirage");
+     QApplication::setApplicationName("mirage");
+     QApplication::setApplicationDisplayName("Mirage");
+     QApplication::setApplicationVersion("0.7.2");
+--- a/packaging/mirage.desktop
++++ b/packaging/mirage.desktop
+@@ -2,8 +2,8 @@
+ Type=Application
+ Name=Mirage
+ GenericName=Matrix Chat Client
+-Exec=mirage
+-Icon=mirage
++Exec=matrix-mirage
++Icon=matrix-mirage
+ Terminal=false
+ Categories=Network;Chat;InstantMessaging;Qt;
+-StartupWMClass=mirage
++StartupWMClass=matrix-mirage

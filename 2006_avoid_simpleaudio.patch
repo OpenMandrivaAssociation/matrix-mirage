@@ -1,0 +1,61 @@
+Description: avoid QML module simpleaudio missing in Debian
+Forwarded: no
+Author: Jonas Smedegaard <dr@jones.dk>
+Last-Update: 2021-08-25
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/src/backend/backend.py
++++ b/src/backend/backend.py
+@@ -2,14 +2,12 @@
+ # SPDX-License-Identifier: LGPL-3.0-or-later
+ 
+ import asyncio
+-import io
+ import logging as log
+ import os
+ import re
+ import sys
+ import time
+ import traceback
+-import wave
+ from datetime import datetime, timedelta
+ from pathlib import Path
+ from typing import Any, DefaultDict, Dict, List, Optional, Tuple, Union
+@@ -18,8 +16,6 @@
+ import aiohttp
+ import nio
+ import plyer
+-import pyotherside
+-import simpleaudio
+ from appdirs import AppDirs
+ from nio.client.async_client import client_session
+ 
+@@ -608,25 +604,6 @@
+ 
+ 
+     async def sound_notify(self) -> None:
+-        path = self.settings.Notifications.default_sound
+-        path = str(Path(path).expanduser())
+-
+-        if path == "default.wav":
+-            path = "src/sounds/default.wav"
+-
+-        try:
+-            content = pyotherside.qrc_get_file_contents(path)
+-        except ValueError:
+-            sa = simpleaudio.WaveObject.from_wave_file(path)
+-        else:
+-            wave_read = wave.open(io.BytesIO(content))
+-            sa        = simpleaudio.WaveObject.from_wave_read(wave_read)
+-
+-        try:
+-            sa.play()
+-            self.audio_working = True
+-        except Exception as e:  # noqa
+-            if self.audio_working:
+-                trace = traceback.format_exc().rstrip()
+-                log.error("Playing audio failed\n%s", trace)
+-                self.audio_working = False
++        if self.audio_working:
++            log.error("Playing audio failed: simpleaudio is missing")
++            self.audio_working = False
