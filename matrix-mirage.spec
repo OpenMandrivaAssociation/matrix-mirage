@@ -3,14 +3,14 @@
 Summary:	A fancy, customizable, keyboard-operable Matrix chat client written in Qt/QML + Python with nio
 Name:		matrix-%{oname}
 Version:	0.7.2
-Release:	2
+Release:	3
 License:	LGPLv3.0
 Group:		Networking/Instant messaging
 URL:		https://github.com/mirukana/mirage
 Source0:	https://github.com/mirukana/mirage/archive/v%{version}/%{oname}-%{version}.tar.gz
 # (debian)
-Patch0:		2003_rename_app.patch
-Patch1:		2006_avoid_simpleaudio.patch
+#Patch0:		2003_rename_app.patch
+#Patch1:		2006_avoid_simpleaudio.patch
 
 BuildRequires:	cmake
 BuildRequires:	qmake5
@@ -25,7 +25,7 @@ BuildRequires:	pkgconfig(libopenjp2)
 BuildRequires:	pkgconfig(libturbojpeg)
 BuildRequires:	pkgconfig(libtiff-4)
 BuildRequires:	pkgconfig(libwebp)
-BuildRequires:	pkgconfig(python3)
+BuildRequires:	pkgconfig(python)
 BuildRequires:	python3dist(aiofiles)
 BuildRequires:	python3dist(appdirs)
 BuildRequires:	python3dist(async-generator)
@@ -44,18 +44,18 @@ BuildRequires:	python3dist(pillow)
 BuildRequires:	python3dist(plyer)
 BuildRequires:	python3dist(pymediainfo)
 BuildRequires:	python3dist(pycryptodome)
-##BuildRequires: python3dist(python-olm)
-BuildRequires:	 python3dist(redbaron)
-#BuildRequires:	python3dist(simpleaudio)
+BuildRequires: python3dist(python-olm)
+#BuildRequires:	 python3dist(redbaron)
+BuildRequires:	python3dist(simpleaudio)
 BuildRequires:	python3dist(sortedcontainers)
 BuildRequires:	 python3dist(watchgod)
 BuildRequires:	pkgconfig(olm)
-##BuildRequires: pkgconfig(Qt5Qml)
-##BuildRequires: pkgconfig(Qt5Quick)
+BuildRequires: pkgconfig(Qt5Qml)
+BuildRequires: pkgconfig(Qt5Quick)
 BuildRequires:	pkgconfig(Qt5QuickControls2)
-##BuildRequires: pkgconfig(Qt5QuickWidgets)
+BuildRequires: pkgconfig(Qt5QuickWidgets)
 BuildRequires:	pkgconfig(Qt5Svg)
-##BuildRequires: pkgconfig(Qt5Widgets)
+BuildRequires: pkgconfig(Qt5Widgets)
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xscrnsaver)
 BuildRequires:	pkgconfig(zlib)
@@ -85,11 +85,6 @@ Requires: python3dist(pymediainfo)
 A fancy, customizable, keyboard-operable Matrix chat client for encrypted and decentralized communication.
 Written in Qt/QML + Python with nio.
  
-%files
-%{_bindir}/%{name}
-%{_datadir}/applications/%{oname}.desktop
-%{_datadir}/examples/%{oname}/settings.py
-%{_iconsdir}/hicolor/*x*/apps/%{oname}.png
 
 #-----------------------------------------------------------------------------
 
@@ -103,3 +98,8 @@ Written in Qt/QML + Python with nio.
 %install
 %make_install INSTALL_ROOT=%{buildroot}
 
+%files
+%{_bindir}/%{name}
+%{_datadir}/applications/%{oname}.desktop
+%{_datadir}/examples/%{oname}/settings.py
+%{_iconsdir}/hicolor/*x*/apps/%{oname}.png
