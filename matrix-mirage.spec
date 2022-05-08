@@ -5,7 +5,7 @@
 Summary:	A fancy, customizable, keyboard-operable Matrix chat client written in Qt/QML + Python with nio
 Name:		matrix-%{oname}
 Version:	0.7.2
-Release:	3
+Release:	4
 License:	LGPLv3.0
 Group:		Networking/Instant messaging
 URL:		https://github.com/mirukana/mirage
@@ -88,6 +88,7 @@ Requires:	python3dist(simpleaudio)
 Requires:	python3dist(sortedcontainers)
 Requires:	python3dist(watchgod)
 Requires:	python3dist(dbus-python)
+Requires:	qml(io.thp.pyotherside)
 
 %description
 A fancy, customizable, keyboard-operable Matrix chat client for encrypted and decentralized communication.
@@ -122,5 +123,4 @@ do
 done
 install -dm 0755 %{buildroot}%{_datadir}/pixmaps/
 convert -size 32x32 packaging/%{oname}.png %{buildroot}%{_datadir}/pixmaps/%{name}.xpm
-
 
