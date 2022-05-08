@@ -5,7 +5,7 @@
 Summary:	A fancy, customizable, keyboard-operable Matrix chat client written in Qt/QML + Python with nio
 Name:		matrix-%{oname}
 Version:	0.7.2
-Release:	2
+Release:	3
 License:	LGPLv3.0
 Group:		Networking/Instant messaging
 URL:		https://github.com/mirukana/mirage
@@ -117,7 +117,7 @@ rm -f %{buildroot}%{_iconsdir}/hicolor/256x256/apps/%{oname}.png
 for d in 16 32 48 64 72 128 256
 do
 	install -dm 0755 %{buildroot}%{_iconsdir}/hicolor/${d}x${d}/apps/
-	convert -background none -size "${d}x${d}" packaging/%{oname}.png \
+	convert -background none -resize "${d}x${d}" packaging/%{oname}.png \
 			%{buildroot}%{_iconsdir}/hicolor/${d}x${d}/apps/%{name}.png
 done
 install -dm 0755 %{buildroot}%{_datadir}/pixmaps/
