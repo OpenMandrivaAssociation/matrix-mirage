@@ -5,21 +5,23 @@
 Summary:	A fancy, customizable, keyboard-operable Matrix chat client written in Qt/QML + Python with nio
 Name:		matrix-%{oname}
 Version:	0.7.2
-Release:	1
+Release:	2
 License:	LGPLv3.0
 Group:		Networking/Instant messaging
 URL:		https://github.com/mirukana/mirage
 # For now use "git clone --recursive" to download all sources and submodules. Source code not contains submodules.
 #  git clone --depth 1 --branch %{version} https://github.com/mirukana/%{oname} %{oname}-%{version}
 #  tar cjf %{oname}-%{version}.tar.gz %{oname}-%{version}
-Source0:	https://github.com/mirukana/mirage/archive/v%{version}/%{oname}-%{version}.tar.gz
+Source0:	%{oname}-%{version}.tar.gz
+#Source0:	https://github.com/mirukana/mirage/archive/v%{version}/%{oname}-%{version}.tar.gz
+Patch0:	matrix-mirage-7.2-fix-python10.patch
 # (debian)
-Patch0:	2003_rename_app.patch
-#Patch1:	2006_avoid_simpleaudio.patch
-Patch2:	matrix-mirage-7.2-fix-python10.patch
+Patch1:	2003_rename_app.patch
+#Patch2:	2006_avoid_simpleaudio.patch
 
 BuildRequires:	cmake
 BuildRequires:	qmake5
+BuildRequires:	imagemagick
 BuildRequires:	qt5-devel
 BuildRequires:	qt5-qtbase-devel
 BuildRequires:	qt5-qtdeclarative
@@ -95,7 +97,8 @@ Written in Qt/QML + Python with nio.
 %{_bindir}/%{name}
 %{_datadir}/applications/%{oname}.desktop
 %{_datadir}/examples/%{oname}/settings.py
-%{_iconsdir}/hicolor/*x*/apps/%{oname}.png
+%{_iconsdir}/hicolor/*/apps/%{name}.png
+%{_datadir}/pixmaps/%{name}.xpm
 
 #-----------------------------------------------------------------------------
 
@@ -108,4 +111,16 @@ Written in Qt/QML + Python with nio.
 
 %install
 %make_install INSTALL_ROOT=%{buildroot}
+
+# icons
+rm -f %{buildroot}%{_iconsdir}/hicolor/256x256/apps/%{oname}.png
+for d in 16 32 48 64 72 128 256
+do
+	install -dm 0755 %{buildroot}%{_iconsdir}/hicolor/${d}x${d}/apps/
+	convert -background none -size "${d}x${d}" packaging/%{oname}.png \
+			%{buildroot}%{_iconsdir}/hicolor/${d}x${d}/apps/%{name}.png
+done
+install -dm 0755 %{buildroot}%{_datadir}/pixmaps/
+convert -size 32x32 packaging/%{oname}.png %{buildroot}%{_datadir}/pixmaps/%{name}.xpm
+
 
