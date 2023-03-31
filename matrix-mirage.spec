@@ -5,7 +5,7 @@
 Summary:	A fancy, customizable, keyboard-operable Matrix chat client written in Qt/QML + Python with nio
 Name:		matrix-%{oname}
 Version:	0.7.2
-Release:	4
+Release:	5
 License:	LGPLv3.0
 Group:		Networking/Instant messaging
 URL:		https://github.com/mirukana/mirage
